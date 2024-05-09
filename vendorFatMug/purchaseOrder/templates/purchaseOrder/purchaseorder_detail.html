@@ -1,0 +1,28 @@
+<!-- vendor_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Detail</title>
+</head>
+<body>
+    <h1>Order Detail</h1>
+    <p><strong>PO Number:</strong> {{ object.po_number }}</p>
+    <p><strong>Vendor:</strong> {{ object.vendor }}</p>
+    <p><strong>Order Date:</strong> {{ object.order_date }}</p>
+    <p><strong>Delivery Date:</strong> {{ object.delivery_date }}</p>
+    <p><strong>Items:</strong> {{ object.items }}</p>
+    <p><strong>Quantity:</strong> {{ object.quantity }}</p>
+    <p><strong>Status:</strong> {{ object.status }}</p>
+    <p><strong>Quality Rating:</strong> {{ object.quality_rating }}</p>
+    <p><strong>Issue Date:</strong> {{ object.issue_date }}</p>
+    <p><strong>Acknowledgement Date:</strong> {{ object.acknowledgement_date }}</p>
+
+    <a href="{% url 'PurchaseOrder-update' object.pk %}">Edit</a>
+    <form action="{% url 'PurchaseOrder-delete' object.pk %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>

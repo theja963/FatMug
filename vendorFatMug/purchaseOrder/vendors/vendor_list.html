@@ -1,0 +1,18 @@
+<!-- vendor_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Vendors</title>
+</head>
+<body>
+    <h1>List of Vendors</h1>
+    <ul>
+        {% for vendor in object_list %}
+            <li><a href="{% url 'vendor-detail' vendor.pk %}">{{ vendor.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'vendor-create' %}">Add New Vendor</a>
+</body>
+</html>
